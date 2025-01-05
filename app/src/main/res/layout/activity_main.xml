@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#A6CCBD"
     tools:context=".MainActivity">
 
     <TextView
@@ -21,6 +21,12 @@
         app:layout_constraintVertical_bias="0.152" />
 
     <EditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"        android:drawableLeft="@drawable/UserIcon"
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="#f3f7e8"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+
         android:id="@+id/LogName"
         android:layout_width="318dp"
         android:layout_height="50dp"
@@ -37,11 +43,32 @@
         android:id="@+id/LogButton"
         android:layout_width="186dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="92dp"
         android:backgroundTint="#56776c"
         android:text="Увійти"
         android:textColorLink="#56776c"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogName" />
+
+    <EditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="#f3f7e8"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+
+        android:drawableStart="@drawable/LockIcon"
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="318dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LogName" />
 

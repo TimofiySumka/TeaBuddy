@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "345367124931",
+    "project_id": "teabuddy-e6bea",
+    "storage_bucket": "teabuddy-e6bea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345367124931:android:94a43b6d801f61ccea7b76",
+        "android_client_info": {
+          "package_name": "com.example.teabuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLnGqItHwKzpErpiZx-9EQT8KZp5Gvbv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
