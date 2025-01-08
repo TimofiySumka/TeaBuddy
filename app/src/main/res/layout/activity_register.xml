@@ -50,96 +50,6 @@
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_percent="1" />
 
-    <EditText
-        android:id="@+id/RegName"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="370dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/roundstyle"
-        android:drawableStart="@drawable/user_circle_icon"
-        android:drawablePadding="10dp"
-        android:hint="@string/RegNameHint"
-        android:padding="10dp"
-        android:textColor="#353539"
-        android:textColorHint="#C2C7B5"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BGDecore"
-        app:layout_constraintVertical_bias="0.052" />
-
-    <EditText
-        android:id="@+id/RegEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="370dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/roundstyle"
-        android:drawableStart="@drawable/email_icon"
-        android:drawablePadding="10dp"
-        android:hint="@string/HintEmail"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:textColor="#353539"
-        android:textColorHint="#C2C7B5"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegName"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/RegPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="370dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/roundstyle"
-        android:drawableStart="@drawable/lock_icon"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="@string/HintPassword"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="#353539"
-        android:textColorHint="#C2C7B5"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegEmail"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/RegRePassowrd"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-        android:layout_width="370dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/roundstyle"
-        android:drawableStart="@drawable/lock_icon"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="@string/RegRePassowrd"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="#353539"
-        android:textColorHint="#C2C7B5"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegPassword"
-        app:layout_constraintVertical_bias="0.0" />
-
     <TextView
         android:id="@+id/OldUserButton"
         android:layout_width="wrap_content"
@@ -198,7 +108,8 @@
         android:id="@+id/RegText"
         android:layout_width="262dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:ellipsize="end"
         android:fontFamily="sans-serif"
         android:scrollHorizontally="false"
@@ -209,10 +120,10 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/textbauble"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textbauble"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintVertical_bias="0.478" />
 
     <TextView
         android:id="@+id/LableReg"
@@ -227,6 +138,141 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/BGDecore"
         app:layout_constraintVertical_bias="0.058" />
+    <!--NAME LAYOUT-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RegNameLayout"
+        android:layout_width="369dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColorHint="#C2C7B5"
+        android:textSize="10dp"
+        app:hintTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/BGDecore"
+        app:layout_constraintVertical_bias="0.15">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/RegName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="208dp"
+            android:background="@drawable/roundstyle"
+            android:drawableStart="@drawable/user_circle_icon"
+            android:drawablePadding="10dp"
+            android:hint="@string/RegNameHint"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="17dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--EMAIL LAYOUT-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RegEmailLayout"
+        android:layout_width="369dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColorHint="#C2C7B5"
+        android:textSize="10dp"
+        app:hintTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegNameLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/RegEmail"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="208dp"
+            android:background="@drawable/roundstyle"
+            android:drawableStart="@drawable/email_icon"
+            android:drawablePadding="10dp"
+            android:hint="@string/HintEmail"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="17dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--PASSWORD LAYOUT-->
+
+    <!--REPASSWORD LAYOUT-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RegPasswordLayout"
+        android:layout_width="369dp"
+        android:layout_height="61dp"
+        android:textColorHint="#C2C7B5"
+        android:textSize="10dp"
+        app:endIconMode="password_toggle"
+        app:endIconTint="#C2C7B5"
+        app:hintTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegEmailLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/RegPassword"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="208dp"
+            android:background="@drawable/roundstyle"
+            android:drawableStart="@drawable/lock_icon"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/HintPassword"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="17dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RegRePassowrdLayout"
+        android:layout_width="369dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColorHint="#C2C7B5"
+        android:textSize="10dp"
+        app:endIconMode="password_toggle"
+        app:endIconTint="#C2C7B5"
+        app:hintTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/BGDecore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegPasswordLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/RegRePassowrd"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="208dp"
+            android:background="@drawable/roundstyle"
+            android:drawableStart="@drawable/lock_icon"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/RegRePassowrd"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="17dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

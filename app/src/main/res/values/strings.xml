@@ -25,4 +25,6 @@
     <string name="EmailRegistered">Ой, хтось вже живе за цією адресою! Схоже, пошта зайнята.</string>
     <string name="WeakPswrd">Може трошки ускладнити пароль?</string>
     <string name="BasicError">Схоже у мене виникли якісь проблеми...</string>
+    <string name="IncrShortPswrd">Пароль надто коротенький. Треба довший (6 символів)</string>
+
 </resources>

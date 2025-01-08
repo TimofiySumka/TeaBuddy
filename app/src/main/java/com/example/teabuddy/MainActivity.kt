@@ -2,6 +2,7 @@ package com.example.teabuddy
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,10 +25,20 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val fs = com.google.firebase.ktx.Firebase.firestore
+
         auth = Firebase.auth
         if (FirebaseAuth.getInstance().currentUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
+
+        val logOutButton: Button = findViewById(R.id.LogOutbutton)
+        logOutButton.setOnClickListener {
+
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }

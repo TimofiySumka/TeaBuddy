@@ -116,8 +116,8 @@
         android:text="@string/LoginButton"
         android:textColor="@color/white"
         android:textColorLink="#56776c"
-         android:textStyle="bold"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
@@ -186,7 +186,8 @@
 
         android:layout_width="262dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:ellipsize="end"
         android:fontFamily="sans-serif"
         android:scrollHorizontally="false"
@@ -197,7 +198,7 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/textbauble"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textbauble"
         app:layout_constraintVertical_bias="0.467" />
@@ -208,6 +209,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="654dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

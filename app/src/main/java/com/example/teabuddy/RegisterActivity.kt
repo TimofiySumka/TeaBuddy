@@ -33,9 +33,11 @@ class RegisterActivity : AppCompatActivity() {
             {
                 binding.RegText.setTextSize(19f)
                 binding.RegText.text = getString(R.string.EmptFld)
-            }
-            else{
-                if (binding.RegPassword.text.toString() == binding.RegRePassowrd.text.toString()) {
+            } else {
+                if (binding.RegPassword.text.toString().length < 6) {
+                    binding.RegText.setTextSize(19f)
+                    binding.RegText.text = getString(R.string.IncrShortPswrd)
+                } else if (binding.RegPassword.text.toString() == binding.RegRePassowrd.text.toString()) {
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                         binding.RegEmail.text.toString().trim(),
                         binding.RegPassword.text.toString()
