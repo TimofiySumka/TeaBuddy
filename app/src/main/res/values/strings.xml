@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">TeaBuddy</string>
+    <string name="WelcomeText">Вітаємо!</string>
+    <string name="HintName">Ваше ім\'я</string>
+    <string name="LoginButton">Увійти</string>
+    <string name="HintPassword">Пароль</string>
+    <string name="HintEmail">Пошта</string>
+    <string name="RegisterName">Зареєструватись</string>
+    <string name="LoginName">З поверненням!</string>
+    <string name="RegName">Ім\'я</string>
+    <string name="ForgotPassword">Забули пароль?</string>
+    <string name="RegisterText">Вперше у нас?</string>
+    <string name="RegisterHi">Привіт!</string>
+    <string name="loginName">Вхід</string>
+    <string name="registerName">Реєстрація</string>
+    <string name="oldUserButton">Вже зареєстровані?</string>
+    <string name="RegRePassowrd">Повторіть пароль</string>
+    <string name="RegButton">Зареєструватись</string>
+
 </resources>

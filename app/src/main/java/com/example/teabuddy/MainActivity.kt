@@ -9,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.Firebase
 import com.google.firebase.firestore.ktx.firestore
 
 class MainActivity : AppCompatActivity() {
@@ -24,8 +23,8 @@ class MainActivity : AppCompatActivity() {
         }
         val fs = com.google.firebase.ktx.Firebase.firestore
 
-        val label= findViewById<TextView>(R.id.LogText)
-        val userName: EditText = findViewById(R.id.LogName)
+        val label= findViewById<TextView>(R.id.LogEmail)
+        val userName: EditText = findViewById(R.id.LogEmail)
         val logButton: Button = findViewById(R.id.LogButton)
 
         logButton.setOnClickListener{
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             if (text.isEmpty())
                 Toast.makeText(this,"Заповніть поле з вашем ім'ям.",Toast.LENGTH_SHORT).show()
             else
-                label.setText("Вітаємо,"+text)
+                label.setText("Вітаємо,"+text+"!")
         }
     }
 }
