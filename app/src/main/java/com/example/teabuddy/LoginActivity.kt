@@ -4,13 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.teabuddy.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -28,6 +25,41 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-}
 
+        binding.LogButton.setOnClickListener{
+            if (binding.LogEmail.text.toString().isEmpty() || binding.LogPassword.text.toString().isEmpty()) {
+                binding.logText.text = getString(R.string.EmptFld)
+                binding.logText.setTextSize(19f)
+            }
+            else {
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    binding.LogEmail.text.toString(),
+                    binding.LogPassword.text.toString()
+                ).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        val exception = task.exception
+                        binding.logText.setTextSize(19f)
+                        if (exception != null) {
+                            when {
+                                exception is FirebaseAuthInvalidUserException -> {
+                                    binding.logText.text = getString(R.string.InvEmail)
+                                }
+                                exception is FirebaseAuthInvalidCredentialsException -> {
+                                    binding.logText.text = getString(R.string.InvPasswrd)
+                                }
+                                else -> {
+                                    binding.logText.text = getString(R.string.BasicError)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
 }

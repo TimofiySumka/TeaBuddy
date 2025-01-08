@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         val fs = com.google.firebase.ktx.Firebase.firestore
         auth = Firebase.auth
         if (FirebaseAuth.getInstance().currentUser == null) {
-            Toast.makeText(this, "UserNotFound", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }

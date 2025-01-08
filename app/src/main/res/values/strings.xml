@@ -17,5 +17,12 @@
     <string name="RegRePassowrd">Повторіть пароль</string>
     <string name="RegButton">Зареєструватись</string>
     <string name="RegNameHint">Ім\'я</string>
-
+    <string name="InvEmail">Ой,такої пошти я не знаю...</string>
+    <string name="InvPasswrd">Схоже у паролі помилка</string>
+    <string name="InvRePasswrd">Ой, паролі трошки не співпали!</string>
+    <string name="EmptFld">Заповніть поля будь ласька :)</string>
+    <string name="InvEmailFormat">Пошта дуже дивно виглядає!Ви певні?</string>
+    <string name="EmailRegistered">Ой, хтось вже живе за цією адресою! Схоже, пошта зайнята.</string>
+    <string name="WeakPswrd">Може трошки ускладнити пароль?</string>
+    <string name="BasicError">Схоже у мене виникли якісь проблеми...</string>
 </resources>
