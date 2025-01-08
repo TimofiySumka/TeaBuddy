@@ -16,5 +16,6 @@
     <string name="oldUserButton">Вже зареєстровані?</string>
     <string name="RegRePassowrd">Повторіть пароль</string>
     <string name="RegButton">Зареєструватись</string>
+    <string name="RegNameHint">Ім\'я</string>
 
 </resources>

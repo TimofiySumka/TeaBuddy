@@ -1,17 +1,20 @@
 package com.example.teabuddy
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,17 +25,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         val fs = com.google.firebase.ktx.Firebase.firestore
-
-        val label= findViewById<TextView>(R.id.LogEmail)
-        val userName: EditText = findViewById(R.id.LogEmail)
-        val logButton: Button = findViewById(R.id.LogButton)
-
-        logButton.setOnClickListener{
-            var text = userName.text.toString().trim()
-            if (text.isEmpty())
-                Toast.makeText(this,"Заповніть поле з вашем ім'ям.",Toast.LENGTH_SHORT).show()
-            else
-                label.setText("Вітаємо,"+text+"!")
+        auth = Firebase.auth
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            Toast.makeText(this, "UserNotFound", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 }
