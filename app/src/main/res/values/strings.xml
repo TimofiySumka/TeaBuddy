@@ -1,4 +1,5 @@
 <resources>
+    //Вхід
     <string name="app_name">TeaBuddy</string>
     <string name="WelcomeText">Вітаємо!</string>
     <string name="HintName">Ваше ім\'я</string>
@@ -7,10 +8,11 @@
     <string name="HintEmail">Пошта</string>
     <string name="RegisterName">Зареєструватись</string>
     <string name="LoginName">З поверненням!</string>
-    <string name="RegName">Ім\'я</string>
     <string name="ForgotPassword">Забули пароль?</string>
     <string name="RegisterText">Вперше у нас?</string>
     <string name="RegisterHi">Привіт!</string>
+    //Реєстрація
+    <string name="RegName">Ім\'я</string>
     <string name="loginName">Вхід</string>
     <string name="registerName">Реєстрація</string>
     <string name="oldUserButton">Вже зареєстровані?</string>
@@ -26,5 +28,12 @@
     <string name="WeakPswrd">Може трошки ускладнити пароль?</string>
     <string name="BasicError">Схоже у мене виникли якісь проблеми...</string>
     <string name="IncrShortPswrd">Пароль надто коротенький. Треба довший (6 символів)</string>
+    //Навігація_Низ
+    <string name="HomeNav">Головна</string>
+    <string name="ToolsNav">Готувати</string>
+    <string name="ProfileNav">Профіль</string>
+    <string name="Mapnav">Мапа</string>
+
+    <string name="LogOut">Вийти</string>
 
 </resources>

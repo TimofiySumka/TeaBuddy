@@ -1,0 +1,21 @@
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Home"
+        android:title="@string/HomeNav"
+        android:icon="@drawable/home_nav_icon"
+/>
+
+    <item
+        android:id="@+id/Tools"
+        android:title="@string/ToolsNav"
+        android:icon="@drawable/tea_cup_icon"
+/>
+
+    <item
+        android:id="@+id/Profile"
+        android:title="@string/ProfileNav"
+        android:icon="@drawable/user_circle_icon"
+
+        />
+</menu>

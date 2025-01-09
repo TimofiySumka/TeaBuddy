@@ -139,6 +139,7 @@
         app:layout_constraintTop_toTopOf="@+id/BGDecore"
         app:layout_constraintVertical_bias="0.058" />
     <!--NAME LAYOUT-->
+    <!--EMAIL LAYOUT-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/RegNameLayout"
         android:layout_width="369dp"
@@ -151,8 +152,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BGDecore"
-        app:layout_constraintVertical_bias="0.15">
+        app:layout_constraintTop_toBottomOf="@+id/LableReg"
+        app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/RegName"
@@ -169,12 +170,13 @@
             android:textColorHint="@color/black"
             android:textSize="17dp" />
     </com.google.android.material.textfield.TextInputLayout>
-    <!--EMAIL LAYOUT-->
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/RegEmailLayout"
         android:layout_width="369dp"
         android:layout_height="61dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:textColorHint="#C2C7B5"
         android:textSize="10dp"
@@ -209,6 +211,9 @@
         android:id="@+id/RegPasswordLayout"
         android:layout_width="369dp"
         android:layout_height="61dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
         android:textColorHint="#C2C7B5"
         android:textSize="10dp"
         app:endIconMode="password_toggle"
@@ -243,6 +248,7 @@
         android:layout_width="369dp"
         android:layout_height="61dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:textColorHint="#C2C7B5"
         android:textSize="10dp"

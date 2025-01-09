@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8CACA0"
@@ -25,7 +26,7 @@
     <TextView
         android:id="@+id/BGDecore2"
         android:layout_width="390dp"
-        android:layout_height="222dp"
+        android:layout_height="205dp"
         android:background="@drawable/box"
         android:backgroundTint="#8CACA0"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/loginName"
-        android:textColor="#f3f7e8"
+        android:textColor="@color/thidcolor"
 
         android:textSize="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,51 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/BGDecore"
         app:layout_constraintVertical_bias="0.058" />
-
-    <EditText
-        android:id="@+id/LogEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="370dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/roundstyle"
-        android:drawableStart="@drawable/email_icon"
-        android:drawablePadding="10dp"
-        android:hint="@string/HintEmail"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:textColor="#353539"
-        android:textColorHint="#C2C7B5"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BGDecore"
-        app:layout_constraintVertical_bias="0.056" />
-
-    <EditText
-        android:id="@+id/LogPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="370dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="132dp"
-        android:background="@drawable/roundstyle"
-        android:drawableStart="@drawable/lock_icon"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="@string/HintPassword"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="#353539"
-        android:textColorHint="#C2C7B5"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BGDecore"
-        app:layout_constraintVertical_bias="0.069" />
 
     <ImageView
         android:id="@+id/textbauble"
@@ -172,7 +128,7 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="280dp"
         android:text="@string/RegisterText"
-        android:textColor="#f3f7e8"
+        android:textColor="@color/thidcolor"
         android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -180,6 +136,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BGDecore2"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/LogEmailLayout"
+        android:layout_width="369dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="428dp"
+        android:textColorHint="#C2C7B5"
+        android:textSize="10dp"
+        app:hintTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LableLog"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/LogEmail"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="208dp"
+            android:background="@drawable/roundstyle"
+            android:drawableStart="@drawable/email_icon"
+            android:drawablePadding="10dp"
+            android:hint="@string/HintEmail"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="17dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/logText"
@@ -203,18 +190,48 @@
         app:layout_constraintTop_toTopOf="@+id/textbauble"
         app:layout_constraintVertical_bias="0.467" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/LogPasswordLayout"
+        android:layout_width="369dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:textColorHint="#C2C7B5"
+        android:textSize="10dp"
+        app:endIconMode="password_toggle"
+        app:endIconTint="#C2C7B5"
+        app:hintTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogEmailLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/LogPassword"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="208dp"
+            android:background="@drawable/roundstyle"
+            android:drawableStart="@drawable/lock_icon"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/HintPassword"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="17dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="654dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
