@@ -15,6 +15,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,13 +37,15 @@ android {
     }
     buildFeatures{
         viewBinding=true
+
     }
 }
 
 dependencies {
+    val fragment_version = "1.8.5"
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore)
-
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
