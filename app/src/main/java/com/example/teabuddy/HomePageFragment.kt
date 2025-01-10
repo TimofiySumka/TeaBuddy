@@ -1,10 +1,8 @@
-package com.example.teabuddy.BottomNav.HomePage.HomePage
+package com.example.teabuddy
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.teabuddy.R
 import com.example.teabuddy.databinding.FragmentHomepageBinding
-import com.example.teabuddy.databinding.FragmentProfileBinding
 
 class HomePageFragment : Fragment(R.layout.fragment_homepage) {
     private lateinit var binding: FragmentHomepageBinding

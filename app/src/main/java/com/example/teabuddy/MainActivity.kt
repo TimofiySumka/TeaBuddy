@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import com.example.teabuddy.BottomNav.HomePage.HomePage.HomePageFragment
 import com.example.teabuddy.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -21,15 +20,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
 
         auth = Firebase.auth
         if (FirebaseAuth.getInstance().currentUser == null) {
@@ -37,11 +37,14 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.FragmentButton.setOnClickListener {
+            replaceFragment(HomePageFragment())
+        }
+
         binding.BottomNav.setOnItemSelectedListener { item ->
             val fragment: Fragment = when (item.itemId) {
                 R.id.Home -> HomePageFragment()
                 R.id.Profile -> ProfileFragment()
-
                 else -> HomePageFragment()
             }
             replaceFragment(fragment)
@@ -56,16 +59,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        binding.FragmentButton.setOnClickListener {
-            replaceFragment(ProfileFragment())
-        }
+
 }
 
-    private fun replaceFragment(fragment:Fragment){
+    private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.FragmentConatiner,fragment)
+        fragmentTransaction.replace(R.id.FragmentConatiner, fragment)
         fragmentTransaction.commit()
-
     }
 }
