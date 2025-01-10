@@ -3,17 +3,15 @@ package com.example.teabuddy
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.teabuddy.BottomNav.HomePage.Profile.ProfileFragment
-import com.example.teabuddy.databinding.ActivityLoginBinding
+import androidx.fragment.app.Fragment
+import com.example.teabuddy.BottomNav.HomePage.HomePage.HomePageFragment
 import com.example.teabuddy.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +37,18 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.BottomNav.setOnItemSelectedListener { item ->
+            val fragment: Fragment = when (item.itemId) {
+                R.id.Home -> HomePageFragment()
+                R.id.Profile -> ProfileFragment()
+
+                else -> HomePageFragment()
+            }
+            replaceFragment(fragment)
+            true
+        }
+
+
         val logOutButton: Button = findViewById(R.id.LogOutbutton)
         logOutButton.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -46,8 +56,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        binding.FragmentButton.setOnClickListener {
+            replaceFragment(ProfileFragment())
+        }
+}
 
-        supportFragmentManager.beginTransaction()
-            .replace(binding.FragmentConatiner.id, ProfileFragment())
-            .commit()    }
+    private fun replaceFragment(fragment:Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.FragmentConatiner,fragment)
+        fragmentTransaction.commit()
+
+    }
 }
