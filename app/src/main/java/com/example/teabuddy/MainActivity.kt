@@ -2,12 +2,14 @@ package com.example.teabuddy
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.teabuddy.BottomNav.HomePage.HomePageFragment
 import com.example.teabuddy.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -30,42 +32,40 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
         auth = Firebase.auth
         if (FirebaseAuth.getInstance().currentUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
 
-        binding.FragmentButton.setOnClickListener {
-            replaceFragment(HomePageFragment())
-        }
 
         binding.BottomNav.setOnItemSelectedListener { item ->
             val fragment: Fragment = when (item.itemId) {
-                R.id.Home -> HomePageFragment()
-                R.id.Profile -> ProfileFragment()
-                else -> HomePageFragment()
+                R.id.Home -> {
+                    HomePageFragment()
+                }
+                R.id.Profile -> {
+                    ProfileFragment()
+                }
+                else -> {
+                    HomePageFragment()
+                }
             }
             replaceFragment(fragment)
             true
         }
 
 
-        val logOutButton: Button = findViewById(R.id.LogOutbutton)
-        logOutButton.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
 }
 
     private fun replaceFragment(fragment: Fragment) {
+        Log.d("MainActivityMY", "Replacing fragment with ${fragment::class.java.simpleName}")
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.FragmentConatiner, fragment)
+        fragmentTransaction.replace(R.id.FragmentContainer, fragment)
+        Log.d("HomePageFragment", "Replaced")
         fragmentTransaction.commit()
+        Log.d("HomePageFragment", "Committed")
+
     }
 }

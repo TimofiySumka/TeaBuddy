@@ -43,5 +43,6 @@ class ProfileFragment : Fragment() {
         @JvmStatic
         fun newInstance() = ProfileFragment()
 
+
     }
 }
