@@ -8,28 +8,6 @@
     android:background="@color/maincolor"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/topOverlap"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.047"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/bottomOverlap"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.047"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <FrameLayout
         android:id="@+id/FragmentContainer"
         android:layout_width="0dp"
@@ -37,14 +15,14 @@
         app:layout_constraintBottom_toTopOf="@+id/BottomNavLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topOverlap" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/BottomNavLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/thidcolor"
-        app:layout_constraintBottom_toTopOf="@+id/bottomOverlap"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintHorizontal_bias="0.0"
@@ -53,8 +31,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/BottomNav"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginBottom="108dp"
+            android:layout_height="match_parent"
             android:background="#f3f7e8"
             app:itemActiveIndicatorStyle="@style/CustomActiveIndicatorStyle"
             app:itemIconTint="@drawable/nav_item_color"

@@ -15,7 +15,7 @@ class HomePageFragment : Fragment(R.layout.fragment_homepage) {
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("HomePageFragment", "onCreate: called")
+
     }
 
     override fun onCreateView(

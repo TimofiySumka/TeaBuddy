@@ -1,29 +1,38 @@
 package com.example.teabuddy
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager;
+import android.provider.ContactsContract.Profile
 import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.teabuddy.BottomNav.HomePage.HomePageFragment
+import com.example.teabuddy.BottomNav.Profile.ProfileFragment
 import com.example.teabuddy.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
+    lateinit var userName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+//        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(HomePageFragment())
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -31,14 +40,30 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        val auth = FirebaseAuth.getInstance()
+        val firestore = FirebaseFirestore.getInstance()
+        val currentUser = auth.currentUser
+        val sharedPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val editor = sharedPreferences.edit()
 
-        auth = Firebase.auth
-        if (FirebaseAuth.getInstance().currentUser == null) {
+        //Перекинути на реєстрацію
+        if (auth.currentUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            finish()}
+        else{
+            val UserID = currentUser?.uid
+            if (UserID != null) {
+                firestore.collection("Users").document(UserID).get()
+                    .addOnSuccessListener { document ->
+                        if (document != null) {
+                            editor.putString("UserName", document.getString("name").toString())
+                            editor.apply()
+                        }
+                    }
+            }
         }
 
-
+        //Нижня навігація
         binding.BottomNav.setOnItemSelectedListener { item ->
             val fragment: Fragment = when (item.itemId) {
                 R.id.Home -> {
@@ -57,15 +82,15 @@ class MainActivity : AppCompatActivity() {
 
 
 }
-
+    //Зміна фрагментів
     private fun replaceFragment(fragment: Fragment) {
-        Log.d("MainActivityMY", "Replacing fragment with ${fragment::class.java.simpleName}")
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.FragmentContainer, fragment)
-        Log.d("HomePageFragment", "Replaced")
+
         fragmentTransaction.commit()
-        Log.d("HomePageFragment", "Committed")
+
 
     }
+
 }

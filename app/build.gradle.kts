@@ -43,6 +43,7 @@ android {
 
 dependencies {
     val fragment_version = "1.8.5"
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore)
     implementation("androidx.fragment:fragment-ktx:$fragment_version")
