@@ -13,9 +13,17 @@
 />
 
     <item
+        android:id="@+id/Shelf"
+        android:title="@string/ShelfNav"
+        android:icon="@drawable/tealeaf"
+        />
+
+    <item
         android:id="@+id/Profile"
         android:title="@string/ProfileNav"
         android:icon="@drawable/user_circle_icon"
 
         />
+
+
 </menu>

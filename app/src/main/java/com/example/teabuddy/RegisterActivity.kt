@@ -56,10 +56,12 @@ class RegisterActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 val firebaseUser = FirebaseAuth.getInstance().currentUser
                                 val userId = firebaseUser?.uid
-                                val normalizedUID = UUID.randomUUID().toString()
+                                val normalizedUID = "User_"+UUID.randomUUID().toString().take(6)
+                                val standartImage =""
                                 val user = hashMapOf(
                                     "name" to binding.RegName.text.toString(),
-                                    "normalizedUID" to normalizedUID
+                                    "normalizedUID" to normalizedUID,
+                                    "profileImage" to standartImage
                                 )
                                 if (userId != null) {
                                     firestore.collection("Users")

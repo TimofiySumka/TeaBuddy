@@ -48,7 +48,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private fun loadUserProfile() {
         val sharedPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
         val userName = sharedPreferences.getString("UserName", (binding.ProfileUserName.toString()))
-
         binding.ProfileUserName.text = userName
+        val userUID = sharedPreferences.getString("NormalizedUID", (binding.ProfileUserID.toString()))
+        binding.ProfileUserID.text = userUID
     }
 }

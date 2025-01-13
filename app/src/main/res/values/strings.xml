@@ -32,6 +32,7 @@
     <string name="HomeNav">Головна</string>
     <string name="ToolsNav">Готувати</string>
     <string name="ProfileNav">Профіль</string>
+    <string name="ShelfNav">Поличка</string>
     <string name="Mapnav">Мапа</string>
 
     <string name="LogOut">Вийти</string>
