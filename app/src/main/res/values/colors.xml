@@ -3,7 +3,7 @@
     <color name="black">#353539</color>
     <color name="white">#FFFFFFFF</color>
     <color name="secondarycolor">#C2C7B5</color> //TextColor
-    <color name="accentcolor">#9FA494</color> //ActiveText
+    <color name="accentcolor">#759087</color> //ActiveText
     <color name="maincolor">#8CACA0</color> //Green Background
     <color name="thidcolor">#f3f7e8</color> //Yellow Elements
     <color name="activeitem">#E7E9DE</color> //ActiveItem

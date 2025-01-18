@@ -28,52 +28,40 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.LogButton.setOnClickListener {
+        binding.LogButton.setOnClickListener{
             if (binding.LogEmail.text.toString().isEmpty() || binding.LogPassword.text.toString().isEmpty()) {
                 binding.logText.text = getString(R.string.EmptFld)
                 binding.logText.setTextSize(19f)
-            } else {
-                val email = binding.LogEmail.text.toString()
-                val password = binding.LogPassword.text.toString()
-
-                FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email)
-                    .addOnCompleteListener { fetchTask ->
-                        if (fetchTask.isSuccessful) {
-                            val signInMethods = fetchTask.result?.signInMethods
-                            if (signInMethods.isNullOrEmpty()) {
-                                binding.logText.text = getString(R.string.InvEmail)
-                                binding.logText.setTextSize(19f)
-                            } else {
-                                FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                                    .addOnCompleteListener { task ->
-                                        if (task.isSuccessful) {
-                                            val intent = Intent(this, MainActivity::class.java)
-                                            startActivity(intent)
-                                            finish()
-                                        } else {
-                                            val exception = task.exception
-                                            binding.logText.setTextSize(19f)
-                                            if (exception != null) {
-                                                when {
-                                                    exception is FirebaseAuthInvalidCredentialsException -> {
-                                                        binding.logText.text = getString(R.string.InvPasswrd)
-                                                    }
-                                                    else -> {
-                                                        binding.logText.text = getString(R.string.BasicError)
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
+            }
+            else {
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    binding.LogEmail.text.toString(),
+                    binding.LogPassword.text.toString()
+                ).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        val exception = task.exception
+                        binding.logText.setTextSize(19f)
+                        if (exception != null) {
+                            when {
+                                exception is FirebaseAuthInvalidUserException -> {
+                                    binding.logText.text = getString(R.string.InvEmail)
+                                }
+                                exception is FirebaseAuthInvalidCredentialsException -> {
+                                    binding.logText.text = getString(R.string.InvPasswrd)
+                                }
+                                else -> {
+                                    binding.logText.text = getString(R.string.BasicError)
+                                }
                             }
-                        } else {
-                            binding.logText.text = getString(R.string.BasicError)
-                            binding.logText.setTextSize(19f)
                         }
                     }
+                }
             }
         }
-
 
 
     }

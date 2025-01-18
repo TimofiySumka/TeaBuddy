@@ -30,8 +30,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
         loadUserProfile()
-
-
         binding.logoutBtn.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(requireContext(), LoginActivity::class.java)

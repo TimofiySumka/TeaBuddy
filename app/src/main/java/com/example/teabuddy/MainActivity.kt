@@ -13,9 +13,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.example.teabuddy.BottomNav.HomePage.HomePageFragment
 import com.example.teabuddy.BottomNav.Profile.ProfileFragment
 import com.example.teabuddy.BottomNav.Recipes.ShelfFragment
+import com.example.teabuddy.Teas.TeaModel
 import com.example.teabuddy.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -23,9 +25,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var newRecyclerView: RecyclerView
+    private lateinit var ArrayList:ArrayList<TeaModel>
+
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
-    lateinit var userName: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -58,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnSuccessListener { document ->
                     if (document != null) {
                         editor.putString("UserName", document.getString("name").toString())
-                        editor.putString("NormalizedUID","@@"+document.getString("normalizedUID").toString())
+                        editor.putString("NormalizedUID","@"+document.getString("normalizedUID").toString())
                         editor.apply()
                     }
                 }
