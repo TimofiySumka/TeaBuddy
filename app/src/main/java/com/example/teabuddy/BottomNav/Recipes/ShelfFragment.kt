@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teabuddy.R
 import com.example.teabuddy.Teas.TeaAdapter
@@ -23,16 +24,13 @@ class ShelfFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         teaList = arrayListOf(
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green"),
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green"),
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green"),
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green"),
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green"),
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green"),
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green"),
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green"),
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green"),
-            TeaModel(R.drawable.tealeaf, "Sweet Tea", "Green")
+            TeaModel(R.drawable.tealeaf, "Sweet Tea","Red"),
+            TeaModel(R.drawable.tealeaf, "Calm Tea","Pu-erh"),
+            TeaModel(R.drawable.tealeaf, "Refreshing Tea","Black"),
+            TeaModel(R.drawable.tealeaf, "Sweet Tea","Black"),
+            TeaModel(R.drawable.tealeaf, "Calm Tea","Cei-longh"),
+            TeaModel(R.drawable.tealeaf, "Refreshing Tea","Ulun")
+
         )
         importTeas()
     }
@@ -48,7 +46,7 @@ class ShelfFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         teaAdapter = TeaAdapter(teaList)
-        binding.teasRv.layoutManager = LinearLayoutManager(requireContext())
+        binding.teasRv.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.teasRv.setHasFixedSize(true)
         binding.teasRv.adapter = teaAdapter
 

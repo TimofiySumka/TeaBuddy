@@ -2,100 +2,83 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingTop="10dp"
+android:paddingBottom="10dp"
+    android:paddingTop="10dp">
 
-
-    >
-
-    <View
-        android:id="@+id/view7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-
-        android:background="#759087"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.02"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tea_item_photo"
-        app:layout_constraintWidth_percent="0.93" />
-
-    <TextView
-        android:id="@+id/tea_name_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:text="Назва чаю"
-        android:textColor="@color/black"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/tea_item_photo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/tea_type_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="8dp"
-        android:text="Вид чаю"
-        android:textColor="@color/black"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tea_item_photo"
-        app:layout_constraintTop_toBottomOf="@+id/tea_name_tv"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
+    <androidx.cardview.widget.CardView
         android:id="@+id/tea_item_photo"
-        android:layout_width="71dp"
-        android:layout_height="69dp"
+        android:layout_width="190dp"
+        android:layout_height="230dp"
         android:layout_marginStart="10dp"
-        android:background="@drawable/shape_circle"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/circle_view2"
-        android:layout_width="47dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="6dp"
-        android:src="@drawable/tealeaf"
-        app:layout_constraintBottom_toBottomOf="@+id/tea_item_photo"
-        app:layout_constraintEnd_toEndOf="@+id/tea_item_photo"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@+id/tea_item_photo"
-        app:layout_constraintTop_toTopOf="@+id/tea_item_photo" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="40dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/accentcolor"
-        android:text=">"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312" />
+            <ImageView
+                android:id="@+id/circle_view2"
+                android:layout_width="175dp"
+                android:layout_height="165dp"
+                android:src="@drawable/tealeaf"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/circle_view4"
-        android:layout_width="28dp"
-        android:layout_height="33dp"
-        android:src="@drawable/ic_play"
+            <View
+                android:id="@+id/tea_item_photo2"
+                android:layout_width="193dp"
+                android:layout_height="66dp"
+                android:background="@color/accentcolor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/circle_view2"
+                app:layout_constraintVertical_bias="1.0" />
 
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+            <TextView
+                android:id="@+id/tea_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="Вид чаю"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tea_item_photo2"
+                app:layout_constraintHorizontal_bias="0.079"
+                app:layout_constraintStart_toStartOf="@+id/tea_item_photo2"
+                app:layout_constraintTop_toBottomOf="@+id/tea_name_tv" />
+
+            <TextView
+                android:id="@+id/tea_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:gravity="bottom"
+                android:text="Назва чаю"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.076"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/circle_view2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
