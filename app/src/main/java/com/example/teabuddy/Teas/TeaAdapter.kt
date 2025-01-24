@@ -10,30 +10,43 @@ import com.example.teabuddy.R
 
 class TeaAdapter(private val teasList: ArrayList<TeaModel>) : RecyclerView.Adapter<TeaAdapter.MyViewHolder>() {
 
+    private var mListener: onItemClickListener? = null
+
+    interface onItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener) {
+        mListener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.tea_item_rv, parent, false)
-        return MyViewHolder(itemView)
+        return MyViewHolder(itemView, mListener)
     }
-
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = teasList[position]
         holder.titleImage.setImageResource(currentItem.image)
         holder.titleText.text = currentItem.name
         holder.titleType.text = currentItem.type
-    }
 
+
+    }
 
     override fun getItemCount(): Int {
         return teasList.size
     }
 
-
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View, listener: onItemClickListener?) : RecyclerView.ViewHolder(itemView) {
         val titleImage: ImageView = itemView.findViewById(R.id.circle_view2)
         val titleText: TextView = itemView.findViewById(R.id.tea_name_tv)
-        val titleType:TextView = itemView.findViewById(R.id.tea_type_tv)
+        val titleType: TextView = itemView.findViewById(R.id.tea_type_tv)
+
+        init {
+            itemView.setOnClickListener {
+                listener?.onItemClick(adapterPosition)
+            }
+        }
     }
 }
-
