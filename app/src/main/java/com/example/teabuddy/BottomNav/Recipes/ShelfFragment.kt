@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.example.teabuddy.R
+import com.example.teabuddy.Teas.IngredientModel
 import com.example.teabuddy.Teas.TeaAdapter
 import com.example.teabuddy.Teas.TeaDetailsActivity
 import com.example.teabuddy.Teas.TeaModel
@@ -27,7 +28,6 @@ class ShelfFragment : Fragment() {
     private lateinit var teaAdapter: TeaAdapter
     private lateinit var teaList: ArrayList<TeaModel>
     private lateinit var searchView :SearchView
-    private lateinit var recyclerView: RecyclerView
 
 
 
@@ -54,12 +54,15 @@ class ShelfFragment : Fragment() {
 
             override fun onItemClick(position: Int) {
                 val intent = Intent(requireContext(),TeaDetailsActivity::class.java)
+                val ingredients = teaList[position].ingredients
+
                 intent.putExtra("teaName",teaList[position].name)
                 intent.putExtra("teaImage",teaList[position].image)
                 intent.putExtra("teaType",teaList[position].type)
                 intent.putExtra("teaDescription",teaList[position].description)
                 intent.putExtra("teaTime",teaList[position].time)
                 intent.putExtra("teaTemperature",teaList[position].temperature)
+                intent.putExtra("teaIngredients", ArrayList(ingredients))
                 startActivity(intent)
             }
         })
@@ -68,8 +71,16 @@ class ShelfFragment : Fragment() {
         binding.teasRv.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.teasRv.setHasFixedSize(true)
         binding.teasRv.adapter = teaAdapter
-        binding.button.setOnClickListener{
-            addTeaToDatabase("Test Tea", "Green", R.drawable.tealeaf,"description info",12,14)
+        binding.button.setOnClickListener {
+            val ingredientIds = listOf("123")
+            addTeaToDatabase(
+                "Test Tea",
+                "Green",
+                "",
+                "description info",
+                12,
+                14,
+                ingredientIds)
         }
     }
 
@@ -93,26 +104,25 @@ class ShelfFragment : Fragment() {
             }
     }
 
-    private fun addTeaToDatabase(name: String, type: String, imageResId: Int,description:String,time:Int,temperature:Int) {
+
+    private fun addTeaToDatabase(name: String, type: String, imageResId: String, description: String, time: Int, temperature: Int, ingredientIds: List<String>) {
         val db = FirebaseFirestore.getInstance()
-        db.collection("Teas").get()
-            .addOnSuccessListener { result ->
-                val tea = hashMapOf(
-                    "name" to name,
-                    "type" to type,
-                    "image" to imageResId,
-                    "description" to description,
-                    "time" to time,
-                    "temperature" to temperature
-                )
 
-                db.collection("Teas")
-                    .add(tea)
-                    .addOnSuccessListener {
-                        teaList.add(TeaModel(imageResId, name, type))
-                        teaAdapter.notifyItemInserted(teaList.size - 1)
-                    }
+        val tea = hashMapOf(
+            "name" to name,
+            "type" to type,
+            "image" to imageResId,
+            "description" to description,
+            "time" to time,
+            "temperature" to temperature,
+            "ingredients" to ingredientIds
+        )
 
+        db.collection("Teas")
+            .add(tea)
+            .addOnSuccessListener {
+                teaList.add(TeaModel(imageResId, name, type))
+                teaAdapter.notifyItemInserted(teaList.size - 1)
             }
     }
 }

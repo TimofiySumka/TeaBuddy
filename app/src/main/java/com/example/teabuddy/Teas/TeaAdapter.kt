@@ -1,12 +1,15 @@
 package com.example.teabuddy.Teas
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import com.google.firebase.storage.FirebaseStorage
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teabuddy.R
+import com.squareup.picasso.Picasso
 
 class TeaAdapter(private val teasList: ArrayList<TeaModel>) : RecyclerView.Adapter<TeaAdapter.MyViewHolder>() {
 
@@ -27,12 +30,23 @@ class TeaAdapter(private val teasList: ArrayList<TeaModel>) : RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = teasList[position]
-        holder.titleImage.setImageResource(currentItem.image)
         holder.titleText.text = currentItem.name
         holder.titleType.text = currentItem.type
 
-
+        val imageUrl = currentItem.image
+        if (imageUrl.isNotEmpty()) {
+            Picasso.get()
+                .load(imageUrl)
+                .placeholder(R.drawable.timeicon)
+                .error(R.drawable.about_icon)
+                .into(holder.titleImage)
+        } else {
+            holder.titleImage.setImageResource(R.drawable.about_icon)
+        }
     }
+
+
+
 
     override fun getItemCount(): Int {
         return teasList.size
