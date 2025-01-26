@@ -44,7 +44,7 @@ android {
 dependencies {
     implementation(libs.firebase.storage)
     val fragment_version = "1.8.5"
-
+    //implementation("androidx.core:core-ktx:1.15.0")//Сповіщення
     implementation ("com.squareup.picasso:picasso:2.8")//Завантаження фото
     implementation ("com.google.firebase:firebase-storage:20.2.0")
     implementation ("com.github.markushi:circlebutton:1.1") //Кругла кнопка

@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -95,6 +96,7 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+
     //Зміна фрагментів
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager

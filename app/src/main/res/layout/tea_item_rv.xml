@@ -58,6 +58,7 @@
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent" />
 
+
             <View
                 android:id="@+id/tea_item_photo2"
                 android:layout_width="match_parent"
