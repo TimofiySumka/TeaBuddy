@@ -38,10 +38,17 @@
     <string name="LogOut">Вийти</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="HintSearchBar">Я шукаю...</string>
-    <string name="AboutDetails">Деталі</string>
 
+    //Деталі чай
+    <string name="HintSearchBar">Я шукаю...</string>
+    <string name="AboutDetails">Про чай</string>
     <string name="BreewingTime">хв</string>
     <string name="Aboutingredients">Інгрідіенти</string>
+
+
+    <string name="NoCaffeine">Відсутній</string>
+    <string name="LowCaffeine">Низький</string>
+    <string name="HighCaffeine">Середній</string>
+    <string name="MediumCaffeine">Високий</string>
 
 </resources>

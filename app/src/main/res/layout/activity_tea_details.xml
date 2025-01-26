@@ -21,37 +21,34 @@
             tools:context=".Teas.TeaDetailsActivity">
 
 
+            <ImageView
+                android:id="@+id/teaImage"
+
+                android:layout_width="match_parent"
+                android:layout_height="435dp"
+
+                android:layout_marginTop="55dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
             <TextView
                 android:id="@+id/infoBG"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="267dp"
+                android:layout_marginTop="-30dp"
                 android:background="@drawable/boxcorners"
                 app:layout_constraintBottom_toBottomOf="parent"
+
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.62"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.986"
+                app:layout_constraintTop_toBottomOf="@+id/teaImage"
+                app:layout_constraintVertical_bias="0.0"
                 app:layout_constraintWidth_percent="1" />
-
-
-             <ImageView
-                android:id="@+id/teaImage"
-
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="65dp"
-
-
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/infoBG"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/teaName"
@@ -101,15 +98,73 @@
                         android:layout_height="match_parent"
                         android:background="@color/thidcolor" />
 
+                    <View
+                        android:id="@+id/line"
+                        android:layout_width="3dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintHeight_percent="0.8"
+                        android:background="@drawable/roundstyle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                        app:layout_constraintHorizontal_bias="0.533"
+                        app:layout_constraintStart_toEndOf="@+id/infoTimeLayout"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/line2"
+                        android:layout_width="3dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/roundstyle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/infoCaffeineLayout"
+                        app:layout_constraintHeight_percent="0.8"
+                        app:layout_constraintHorizontal_bias="0.56"
+                        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <LinearLayout
+                        android:id="@+id/infoCaffeineLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="40dp"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginEnd="50dp"
                         android:gravity="center"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="@+id/infoPanelBg"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                        app:layout_constraintTop_toTopOf="@+id/infoPanelBg"
+                        app:layout_constraintVertical_bias="0.523">
+
+                        <View
+                            android:id="@+id/caffeineIcon"
+                            android:layout_width="55dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/coffee_beans"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/levelCaffeine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Кофеїн"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="45dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/infoPanelBg"
                         app:layout_constraintStart_toEndOf="@+id/infoTimeLayout"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -136,7 +191,7 @@
                         android:id="@+id/infoTimeLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="40dp"
+                        android:layout_marginStart="50dp"
                         android:gravity="center"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="@+id/infoPanelBg"
@@ -267,24 +322,30 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/top_panel"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="#759087"
-        app:layout_constraintHeight_percent="0.07" />
+        <View
+            android:id="@+id/top_panel"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#759087"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <at.markushi.ui.CircleButton
-        android:id="@+id/back_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        <at.markushi.ui.CircleButton
+            android:id="@+id/back_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
 
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:src="@drawable/back_arrow"
-        app:cb_color="#8AA49B">
+            android:src="@drawable/back_arrow"
+            app:cb_color="#8AA49B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </at.markushi.ui.CircleButton>
+        </at.markushi.ui.CircleButton>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

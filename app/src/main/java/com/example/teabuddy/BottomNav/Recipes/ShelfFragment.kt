@@ -62,6 +62,7 @@ class ShelfFragment : Fragment() {
                 intent.putExtra("teaDescription",teaList[position].description)
                 intent.putExtra("teaTime",teaList[position].time)
                 intent.putExtra("teaTemperature",teaList[position].temperature)
+                intent.putExtra("teaCaffeine",teaList[position].caffeine)
                 intent.putExtra("teaIngredients", ArrayList(ingredients))
                 startActivity(intent)
             }
@@ -76,10 +77,11 @@ class ShelfFragment : Fragment() {
             addTeaToDatabase(
                 "Test Tea",
                 "Green",
-                "",
+                "https://firebasestorage.googleapis.com/v0/b/teabuddy-e6bea.firebasestorage.app/o/TeaImages%2Flovare_strawberry_champagne.jpg?alt=media&token=100b4e02-fac3-40a2-9ac1-7fe1b64bef82",
                 "description info",
                 12,
                 14,
+                0,
                 ingredientIds)
         }
     }
@@ -105,7 +107,7 @@ class ShelfFragment : Fragment() {
     }
 
 
-    private fun addTeaToDatabase(name: String, type: String, imageResId: String, description: String, time: Int, temperature: Int, ingredientIds: List<String>) {
+    private fun addTeaToDatabase(name: String, type: String, imageResId: String, description: String, time: Int, temperature: Int, caffeine:Int,ingredientIds: List<String>) {
         val db = FirebaseFirestore.getInstance()
 
         val tea = hashMapOf(
@@ -115,6 +117,7 @@ class ShelfFragment : Fragment() {
             "description" to description,
             "time" to time,
             "temperature" to temperature,
+            "caffeine" to caffeine,
             "ingredients" to ingredientIds
         )
 

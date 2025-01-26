@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.teabuddy.BottomNav.HomePage.HomePageFragment
 import com.example.teabuddy.BottomNav.Profile.ProfileFragment
 import com.example.teabuddy.BottomNav.Recipes.ShelfFragment
+import com.example.teabuddy.BottomNav.ToolsPage.ToolsFragment
 import com.example.teabuddy.Teas.TeaModel
 import com.example.teabuddy.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -74,6 +75,9 @@ class MainActivity : AppCompatActivity() {
             val fragment: Fragment = when (item.itemId) {
                 R.id.Home -> {
                     HomePageFragment()
+                }
+                R.id.Tools ->{
+                    ToolsFragment()
                 }
                 R.id.Profile -> {
                     ProfileFragment()
