@@ -1,5 +1,6 @@
 package com.example.teabuddy.Teas
 import IngredientsAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -8,6 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.teabuddy.BottomNav.ToolsPage.TimerFragment
+import com.example.teabuddy.MainActivity
 import com.example.teabuddy.R
 import com.example.teabuddy.databinding.ActivityTeaDetailsBinding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,6 +27,21 @@ class TeaDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
         val bundle: Bundle? = intent.extras
         val teaIngredients= bundle?.getStringArrayList("teaIngredients")
+
+        binding.infoTimeLayout.setOnClickListener {
+            val teaTime = intent.extras?.getInt("teaTime") ?: 0
+            val timerFragment = TimerFragment().apply {
+                arguments = Bundle().apply {
+                    putInt("BREWING_TIME", teaTime)
+                }
+            }
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.FragmentContainer, timerFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+
 
         binding.backBtn.setOnClickListener {
             finish()
@@ -62,6 +80,7 @@ class TeaDetailsActivity : AppCompatActivity() {
         Time.text = "$teaTime${(Time.text)}"
         Temperature.text = "$teaTemperature${(Temperature.text)}"
     }
+
     private fun loadImage(){
         val Image: ImageView=binding.teaImage
         val teaImage = intent.getStringExtra("teaImage")
@@ -76,6 +95,7 @@ class TeaDetailsActivity : AppCompatActivity() {
             Image.setImageResource(R.drawable.about_icon)
         }
     }
+
     private fun loadIngredients(ingredientIds: List<String>) {
         ingredientsList = ArrayList()
         val adapter = IngredientsAdapter(ingredientsList)

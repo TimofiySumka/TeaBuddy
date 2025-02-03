@@ -34,7 +34,7 @@ object NotificationHelper {
                 CHANNEL_NAME,
                 NotificationManager.IMPORTANCE_DEFAULT
             ).apply {
-                description = "Уведомления от Tea Buddy"
+                description = "Сповіщення від Tea Buddy"
             }
             val notificationManager =
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -47,7 +47,7 @@ object NotificationHelper {
             .setSmallIcon(R.drawable.notif_icon)
             .setContentTitle(title)
             .setContentText(content)
-            .setPriority(NotificationCompat.PRIORITY_MAX )
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT )
 //            .setSound(Uri.parse("android.resource://" + context.packageName + "/" + R.raw.notification_sound))
             .setAutoCancel(true)
 
@@ -55,4 +55,6 @@ object NotificationHelper {
             notify(NOTIFICATION_ID, builder.build())
         }
     }
+
+
 }

@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.teabuddy.BottomNav.HomePage.HomePageFragment
 import com.example.teabuddy.BottomNav.Profile.ProfileFragment
 import com.example.teabuddy.BottomNav.Recipes.ShelfFragment
+import com.example.teabuddy.BottomNav.ToolsPage.TimerFragment
 import com.example.teabuddy.BottomNav.ToolsPage.ToolsFragment
 import com.example.teabuddy.Teas.TeaModel
 import com.example.teabuddy.databinding.ActivityMainBinding
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         val sharedPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         val editor = sharedPreferences.edit()
+
 
         //Перекинути на реєстрацію
         val UserID = currentUser?.uid

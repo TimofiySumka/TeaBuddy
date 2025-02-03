@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,6 +19,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TeaBuddy"
         tools:targetApi="31">
+
+
+<receiver android:name="receiver"/>
+
+        <service
+            android:name=".TimerService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            tools:ignore="ForegroundServicePermission" >
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Foreground service needed to use timer..." />
+        </service>
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -23,22 +43,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
 
         <activity
-        android:name=".Teas.TeaDetailsActivity">
-
-        </activity>
-
+            android:name=".Teas.TeaDetailsActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
