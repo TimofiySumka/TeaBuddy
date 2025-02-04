@@ -28,6 +28,7 @@ class TeaDetailsActivity : AppCompatActivity() {
         val bundle: Bundle? = intent.extras
         val teaIngredients= bundle?.getStringArrayList("teaIngredients")
 
+        //Передати час
         binding.infoTimeLayout.setOnClickListener {
             val teaTime = intent.extras?.getInt("teaTime") ?: 0
             val timerFragment = TimerFragment().apply {

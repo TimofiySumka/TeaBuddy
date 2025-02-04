@@ -50,5 +50,6 @@
     <string name="LowCaffeine">Низький</string>
     <string name="HighCaffeine">Середній</string>
     <string name="MediumCaffeine">Високий</string>
+    <string name="MapNav">Мапа</string>
 
 </resources>

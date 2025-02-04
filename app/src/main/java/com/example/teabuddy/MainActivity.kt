@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teabuddy.BottomNav.HomePage.HomePageFragment
+import com.example.teabuddy.BottomNav.Map.MapFragment
 import com.example.teabuddy.BottomNav.Profile.ProfileFragment
 import com.example.teabuddy.BottomNav.Recipes.ShelfFragment
 import com.example.teabuddy.BottomNav.ToolsPage.TimerFragment
@@ -87,6 +88,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.Shelf->{
                     ShelfFragment()
+                }
+                R.id.Map->{
+                    MapFragment()
                 }
                 else -> {
                     HomePageFragment()
