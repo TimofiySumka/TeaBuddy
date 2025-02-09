@@ -1,4 +1,4 @@
-package com.example.teabuddy.BottomNav.Recipes
+package com.example.teabuddy.BottomNav.Teas
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,15 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
-import com.example.teabuddy.R
-import com.example.teabuddy.Teas.IngredientModel
 import com.example.teabuddy.Teas.TeaAdapter
 import com.example.teabuddy.Teas.TeaDetailsActivity
 import com.example.teabuddy.Teas.TeaModel
@@ -24,17 +19,21 @@ import com.google.firebase.firestore.FirebaseFirestore
 class ShelfFragment : Fragment() {
     private var _binding: FragmentShelfBinding? = null
     private val binding get() = _binding!!
+    private  var success: Boolean = true
 
     private lateinit var teaAdapter: TeaAdapter
     private lateinit var teaList: ArrayList<TeaModel>
+    private lateinit var brandList: ArrayList<BrandModel>
     private lateinit var searchView :SearchView
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        brandList= arrayListOf()
         teaList = arrayListOf()
         importTeas()
+        importBrands()
     }
 
     override fun onCreateView(
@@ -48,10 +47,36 @@ class ShelfFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         searchView = binding.searchview
+        searchView.clearFocus()
         teaAdapter = TeaAdapter(teaList)
+
+        binding.filtersButton.setOnClickListener {
+            val bottomSheet = BottomSheetFilters(object : Filter.FilterListener {
+                override fun onFilterComplete(p0: Int) {}
+            },brandList)
+            bottomSheet.show(parentFragmentManager, bottomSheet.tag)
+        }
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                searchView.clearFocus()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                searchView.clearFocus()
+                val success = teaAdapter.filter(newText)
+                if (!success) {
+                    binding.NotFoundLayout.visibility = View.VISIBLE
+                } else {
+                    binding.NotFoundLayout.visibility = View.INVISIBLE
+                }
+                return true
+            }
+
+        })
+
         teaAdapter.setOnItemClickListener(object : TeaAdapter.onItemClickListener {
-
-
             override fun onItemClick(position: Int) {
                 val intent = Intent(requireContext(),TeaDetailsActivity::class.java)
                 val ingredients = teaList[position].ingredients
@@ -91,6 +116,20 @@ class ShelfFragment : Fragment() {
         _binding = null
     }
 
+    private fun importBrands(){
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Brands").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val brand = document.toObject(BrandModel::class.java)
+                    brandList.add(brand)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w("Firestore", "ShelfFragmentError:Import Brands error", exception)
+            }
+    }
+
     private fun importTeas(){
         val db = FirebaseFirestore.getInstance()
         db.collection("Teas").get()
@@ -99,6 +138,7 @@ class ShelfFragment : Fragment() {
                     val tea = document.toObject(TeaModel::class.java)
                     teaList.add(tea)
                 }
+                teaAdapter.updateFullTeaList(teaList)
                 teaAdapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomSheetLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/boxcorners"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAlignment="center"
+            android:paddingBottom="10dp"
+            android:paddingStart="40dp"
+            android:text="Фільтри"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <at.markushi.ui.CircleButton
+            android:id="@+id/buttonClose"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/close_icon"
+            app:cb_color="@color/accentcolor" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/accentcolor"
+        android:layout_marginVertical="8dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Вид чаю"
+        android:textSize="20dp"
+        android:paddingBottom="5dp"
+        android:textColor="@android:color/black"/>
+
+    <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+        android:id="@+id/tea_types_flex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="10dp"
+        app:alignItems="center"
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        app:toggle_requiredAmount="0"
+        app:toggle_selectableAmount="6">
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/greenTea"
+            style="@style/ToggleButtonCustom"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            app:toggle_text=" Зелений  " />
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/whiteTea"
+            style="@style/ToggleButtonCustom"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            app:toggle_text="   Білий    " />
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/puerTea"
+            style="@style/ToggleButtonCustom"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            app:toggle_text="     Пуер    " />
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/oolongTea"
+            style="@style/ToggleButtonCustom"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            app:toggle_text="    Улунг   " />
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/yellowTea"
+            style="@style/ToggleButtonCustom"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            app:toggle_text="   Жовтий " />
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/blackTea"
+            style="@style/ToggleButtonCustom"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            app:toggle_text="   Чорний   " />
+    </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/accentcolor"
+        android:layout_marginVertical="8dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Кофеїн"
+        android:textSize="20dp"
+        android:paddingBottom="5dp"
+        android:textColor="@android:color/black"/>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/buttonsCoffeeneLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:justifyContent="space_around"
+>
+
+        <Button
+            android:id="@+id/button3"
+            app:cornerRadius="15dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/maincolor"
+            android:text="Button"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/button4"
+            app:cornerRadius="15dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/maincolor"
+
+            android:text="Button"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/button2"
+            app:cornerRadius="15dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/maincolor"
+
+            android:text="Button"
+            android:textColor="@android:color/black" />
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/accentcolor"
+        android:layout_marginVertical="8dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Виробник"
+        android:textSize="20dp"
+        android:paddingBottom="5dp"
+        android:textColor="@android:color/black"/>
+    <Spinner
+        android:id="@+id/teaTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/accentcolor"
+        android:layout_marginVertical="8dp"/>
+    <LinearLayout
+
+        android:id="@+id/buttonsFilterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/thidcolor"
+            android:text="Очистити"
+            android:textColor="@color/maincolor" />
+
+        <Button
+            android:id="@+id/applyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/maincolor"
+            android:text="Шукати"
+            android:textColor="@color/thidcolor" />
+    </LinearLayout>
+
+</LinearLayout>
+

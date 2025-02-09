@@ -46,7 +46,8 @@ dependencies {
     implementation(libs.play.services.location)
     implementation(libs.places)
     val fragment_version = "1.8.5"
-
+    implementation ("nl.bryanderidder:themed-toggle-button-group:1.4.1")
+    implementation ("com.google.android.flexbox:flexbox:3.0.0")
     implementation("com.google.android.gms:play-services-maps:18.2.0")//Гугл мапа
     implementation ("com.squareup.picasso:picasso:2.8")//Завантаження фото
     implementation ("com.google.firebase:firebase-storage:20.2.0")

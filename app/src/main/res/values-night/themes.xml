@@ -4,6 +4,10 @@
         <item name="android:statusBarColor">#759086</item>
         <item name="android:navigationBarColor">@color/thidcolor</item>
         <item name="fontFamily">@font/allerta</item>
+        <item name="android:editTextColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/black</item>
+
+
     </style>
 
     <style name="CustomActiveIndicatorStyle">
@@ -31,6 +35,32 @@
         <item name="android:minHeight">12dp</item>
         <item name="iconGravity">textStart</item>
     </style>
+
+<style name="ToggleButtonCustom" parent="">
+    <item name="toggle_backgroundColor">@color/maincolor</item>
+    <item name="toggle_textSize">18dp</item>
+    <item name="toggle_textColor">@color/thidcolor</item>
+    <item name="toggle_btnCornerRadius">15dp</item>
+    <item name="toggle_selectAnimation">fade</item>
+    <item name="android:layout_marginBottom">5dp</item>
+    <item name="android:layout_marginLeft">2dp</item>
+    <item name="android:layout_marginRight">2dp</item>
+
+    <item name="toggle_textAlignment">center</item>
+    <item name="toggle_textPaddingBottom">5dp</item>
+    <item name="toggle_icon">@drawable/tealeaf</item>
+    <item name="toggle_iconGravity">top|center</item>
+    <item name="toggle_textGravity">bottom|center</item>
+
+
+    <item name="toggle_selectedTextColor">@color/maincolor</item>
+    <item name="toggle_selectedBackgroundColor">@color/thidcolor</item>
+    <item name="toggle_selectedBorderWidth">4dp</item>
+    <item name="toggle_selectedBorderColor">@color/maincolor</item>
+
+
+
+</style>
 
     <style name="CircleButtonShape" parent="">
         <item name="cornerFamily">rounded</item>

@@ -46,7 +46,25 @@ class TeaAdapter(private val teasList: ArrayList<TeaModel>) : RecyclerView.Adapt
     }
 
 
+    private var fullTeaList: ArrayList<TeaModel> = ArrayList(teasList)
+    fun filter(query: String): Boolean {
+        teasList.clear()
+        if (query.isEmpty()) {
+            teasList.addAll(fullTeaList)
+        } else {
+            val filteredList = fullTeaList.filter {
+                it.name.contains(query, ignoreCase = true)
+            }
+            teasList.addAll(filteredList)
+        }
+        notifyDataSetChanged()
+        return teasList.isNotEmpty()
+    }
 
+    fun updateFullTeaList(newList: ArrayList<TeaModel>) {
+        fullTeaList.clear()
+        fullTeaList.addAll(newList)
+    }
 
     override fun getItemCount(): Int {
         return teasList.size
