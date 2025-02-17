@@ -42,9 +42,8 @@
     <item name="toggle_textColor">@color/thidcolor</item>
     <item name="toggle_btnCornerRadius">15dp</item>
     <item name="toggle_selectAnimation">fade</item>
-    <item name="android:layout_marginBottom">5dp</item>
-    <item name="android:layout_marginLeft">2dp</item>
-    <item name="android:layout_marginRight">2dp</item>
+    <item name="android:layout_marginBottom">10dp</item>
+
 
     <item name="toggle_textAlignment">center</item>
     <item name="toggle_textPaddingBottom">5dp</item>

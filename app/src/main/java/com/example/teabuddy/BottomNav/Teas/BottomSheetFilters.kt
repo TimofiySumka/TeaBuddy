@@ -38,6 +38,11 @@ class BottomSheetFilters(private val listener: Filter.FilterListener,    private
         binding.buttonClose.setOnClickListener{
             dismiss()
         }
+
+        binding.resetButton.setOnClickListener {
+            binding.teaTypesFlex.buttons.forEach { it.isSelected = false }
+        }
+
         binding.applyButton.setOnClickListener {
             val selectedBrand = binding.teaTypeSpinner.selectedItem.toString()
             Toast.makeText(context, "Selected Brand: $selectedBrand", Toast.LENGTH_SHORT).show()

@@ -6,19 +6,20 @@
     android:layout_height="wrap_content"
     android:background="@drawable/boxcorners"
     android:orientation="vertical"
-    android:padding="16dp">
+>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginVertical="10dp"
+        >
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="3"
-            android:textAlignment="center"
-            android:paddingBottom="10dp"
+            android:gravity="center"
             android:paddingStart="40dp"
             android:text="Фільтри"
             android:textColor="@android:color/black"
@@ -36,9 +37,11 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_height="2dp"
         android:background="@color/accentcolor"
-        android:layout_marginVertical="8dp"/>
+        android:layout_marginVertical="4dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,62 +56,65 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="10dp"
-        app:alignItems="center"
-        app:flexDirection="row"
+        android:paddingHorizontal="15dp"
         app:flexWrap="wrap"
+        app:justifyContent="space_between"
+        app:toggle_horizontalSpacing="0dp"
         app:toggle_requiredAmount="0"
         app:toggle_selectableAmount="6">
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/greenTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="105dp"
-            android:layout_height="105dp"
-            app:toggle_text=" Зелений  " />
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:toggle_circularCornerRadius="false"
+            app:toggle_text="   Зелений   " />
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/whiteTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="105dp"
-            android:layout_height="105dp"
-            app:toggle_text="   Білий    " />
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:toggle_text="       Білий    " />
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/puerTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="105dp"
-            android:layout_height="105dp"
-            app:toggle_text="     Пуер    " />
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:toggle_text="       Пуер     " />
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/oolongTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="105dp"
-            android:layout_height="105dp"
-            app:toggle_text="    Улунг   " />
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:toggle_text="      Улунг     " />
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/yellowTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="105dp"
-            android:layout_height="105dp"
-            app:toggle_text="   Жовтий " />
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:toggle_text="    Жовтий   " />
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/blackTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="105dp"
-            android:layout_height="105dp"
-            app:toggle_text="   Чорний   " />
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:toggle_text="    Чорний   " />
     </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
 
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_height="2dp"
         android:background="@color/accentcolor"
-        android:layout_marginVertical="8dp"/>
+        android:layout_marginVertical="4dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -157,9 +163,10 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_height="2dp"
         android:background="@color/accentcolor"
-        android:layout_marginVertical="8dp"/>
+        android:layout_marginVertical="4dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -168,7 +175,10 @@
         android:textSize="20dp"
         android:paddingBottom="5dp"
         android:textColor="@android:color/black"/>
+
+
     <Spinner
+        style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
         android:id="@+id/teaTypeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -180,26 +190,32 @@
         android:background="@color/accentcolor"
         android:layout_marginVertical="8dp"/>
     <LinearLayout
-
         android:id="@+id/buttonsFilterLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:padding="16dp">
 
         <Button
             android:id="@+id/resetButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:backgroundTint="@color/thidcolor"
             android:text="Очистити"
+            android:textSize="16dp"
+            android:layout_marginHorizontal="10dp"
+
+            android:layout_weight="1"
             android:textColor="@color/maincolor" />
 
         <Button
             android:id="@+id/applyButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="center"
+            android:layout_weight="1"
+            android:textSize="16dp"
+            android:layout_marginHorizontal="10dp"
             android:backgroundTint="@color/maincolor"
             android:text="Шукати"
             android:textColor="@color/thidcolor" />
