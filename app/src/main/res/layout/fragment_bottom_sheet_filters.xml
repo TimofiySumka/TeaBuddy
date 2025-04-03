@@ -50,13 +50,22 @@
         android:textSize="20dp"
         android:paddingBottom="5dp"
         android:textColor="@android:color/black"/>
+    <GridLayout
+        android:id="@+id/tea_types_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:columnCount="3"
+        android:rowCount="2"
+        android:useDefaultMargins="true">
 
     <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
         android:id="@+id/tea_types_flex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingHorizontal="15dp"
+        android:paddingHorizontal="10dp"
+
         app:flexWrap="wrap"
         app:justifyContent="space_between"
         app:toggle_horizontalSpacing="0dp"
@@ -66,47 +75,40 @@
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/greenTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+
             app:toggle_circularCornerRadius="false"
-            app:toggle_text="   Зелений   " />
+            app:toggle_text="Зелений"/>
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/whiteTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:toggle_text="       Білий    " />
+
+            app:toggle_text="Білий" />
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/puerTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:toggle_text="       Пуер     " />
+
+            app:toggle_text="Пуер" />
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/oolongTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:toggle_text="      Улунг     " />
+            app:toggle_text="Улунг" />
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/yellowTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:toggle_text="    Жовтий   " />
+
+            app:toggle_text="Жовтий" />
 
         <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
             android:id="@+id/blackTea"
             style="@style/ToggleButtonCustom"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:toggle_text="    Чорний   " />
-    </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
 
+            app:toggle_text="Чорний" />
+    </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+    </GridLayout>
 
     <View
         android:layout_width="match_parent"
@@ -124,42 +126,51 @@
         android:paddingBottom="5dp"
         android:textColor="@android:color/black"/>
 
-    <com.google.android.flexbox.FlexboxLayout
+    <LinearLayout
         android:id="@+id/buttonsCoffeeneLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:justifyContent="space_around"
+        android:paddingHorizontal="10dp"
 >
 
-        <Button
-            android:id="@+id/button3"
-            app:cornerRadius="15dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <ImageView
+            android:id="@+id/startImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/coffee_beans"
+            android:contentDescription="Start Image"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Ползунок (SeekBar) -->
+        <SeekBar
+            android:layout_gravity="center_vertical"
+
+            android:id="@+id/slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:thumbTint="@color/maincolor"
+            android:progressTint="@color/accentcolor"
+            android:progressBackgroundTint="@color/accentcolor"
+
+            android:layout_weight="1"
+            android:min="1"
+            android:max="4"
+            android:progress="1"
+            android:splitTrack="false"/>
+
+        <!-- Правое изображение -->
+        <ImageView
+            android:id="@+id/endImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:backgroundTint="@color/maincolor"
-            android:text="Button"
-            android:textColor="@android:color/black" />
+            android:src="@drawable/coffee_beans_h"
+            android:contentDescription="End Image"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/button4"
-            app:cornerRadius="15dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/maincolor"
-
-            android:text="Button"
-            android:textColor="@android:color/black" />
-
-        <Button
-            android:id="@+id/button2"
-            app:cornerRadius="15dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/maincolor"
-
-            android:text="Button"
-            android:textColor="@android:color/black" />
-    </com.google.android.flexbox.FlexboxLayout>
 
     <View
         android:layout_width="match_parent"
@@ -178,10 +189,11 @@
 
 
     <Spinner
-        style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
         android:id="@+id/teaTypeSpinner"
+        android:theme="@style/SpinnerStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
 
     <View
